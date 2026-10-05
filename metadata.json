@@ -1,0 +1,6 @@
+{
+  "name": "Zenin OS 2.0",
+  "description": "Zenin OS 2.0 is an intelligent productivity system designed to help you plan, focus, execute and improve your day by N11HUB.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
