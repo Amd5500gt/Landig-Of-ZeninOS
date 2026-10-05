@@ -31,12 +31,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
           href="#" 
           className="flex items-center gap-2 group text-slate-900 font-bold tracking-tight text-lg sm:text-xl transition-transform active:scale-95"
         >
-          <span className="relative flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-tr from-[#FF8A65] via-[#FF4D6D] to-[#9B6DFF] text-white shadow-sm shadow-[#FF8A65]/30">
-            <span className="font-extrabold text-sm tracking-tighter">Z</span>
-            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#A8E063] ring-2 ring-white" />
-          </span>
+          <img
+            src="/assets/zeninos-logo.svg"
+            alt=""
+            aria-hidden="true"
+            className="w-9 h-9"
+          />
           <span className="font-extrabold bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-            N11HUB
+            ZeninOs
           </span>
         </a>
 
