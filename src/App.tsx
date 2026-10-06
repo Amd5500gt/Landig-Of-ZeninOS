@@ -8,7 +8,7 @@ import { Navbar } from './components/Navbar.tsx';
 import { Hero } from './components/Hero.tsx';
 import { AnimatedMovingTicker } from './components/AnimatedMovingTicker.tsx';
 import { FeaturesSection } from './components/FeaturesSection.tsx';
-import { AISection } from './components/AISection.tsx';
+import { AISection } from './components/AiSection.tsx';
 import { DownloadSection } from './components/DownloadSection.tsx';
 import { Footer } from './components/Footer.tsx';
 import { AmbientBackground } from './components/AmbientBackground.tsx';
