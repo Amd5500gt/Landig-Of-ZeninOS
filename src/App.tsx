@@ -4,73 +4,63 @@
  */
 
 import React, { useState, useCallback } from 'react';
-import { AmbientBackground } from './components/AmbientBackground';
-import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { FeaturesSection } from './components/FeaturesSection';
-import { AiSection } from './components/AiSection';
-import { DownloadSection } from './components/DownloadSection';
-import { Footer } from './components/Footer';
+import { Navbar } from './components/Navbar.tsx';
+import { Hero } from './components/Hero.tsx';
+import { AnimatedMovingTicker } from './components/AnimatedMovingTicker.tsx';
+import { FeaturesSection } from './components/FeaturesSection.tsx';
+import { AISection } from './components/AISection.tsx';
+import { DownloadSection } from './components/DownloadSection.tsx';
+import { Footer } from './components/Footer.tsx';
+import { AmbientBackground } from './components/AmbientBackground.tsx';
 
 export default function App() {
-  const [downloadState, setDownloadState] = useState<'idle' | 'started'>('idle');
+  const [downloading, setDownloading] = useState(false);
 
-  const triggerApkDownload = useCallback(() => {
-    setDownloadState('started');
-
-    // Trigger download of the actual APK available in assets/
+  const handleDownload = useCallback(() => {
+    // Direct link to the real discovered APK
+    const apkUrl = 'assets/ZeninOS_1.0.apk';
     const link = document.createElement('a');
-    link.href = 'assets/ZeninOS_1.0.apk';
+    link.href = apkUrl;
     link.setAttribute('download', 'ZeninOS_1.0.apk');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 
-    // Reset button label after 3.5s
+    // Provide temporary visual confirmation
+    setDownloading(true);
     setTimeout(() => {
-      setDownloadState('idle');
-    }, 3500);
+      setDownloading(false);
+    }, 2800);
   }, []);
 
-  const handleHeroOrNavDownload = useCallback(() => {
-    const downloadEl = document.getElementById('download');
-    if (downloadEl) {
-      downloadEl.scrollIntoView({ behavior: 'smooth' });
-    }
-    // Also initiate download smoothly
-    setTimeout(() => {
-      triggerApkDownload();
-    }, 400);
-  }, [triggerApkDownload]);
-
   return (
-    <div className="relative min-h-screen bg-[#FFFDF8] text-slate-800 font-sans selection:bg-[#FF8A65]/20 selection:text-[#FF4D6D]">
-      {/* Subtle fruit-inspired ambient gradient background */}
+    <div className="relative min-h-screen bg-[#FFFDF8] text-[#1E293B] flex flex-col font-['Poppins',sans-serif]">
+      {/* Background ambient lighting and subtle gradient depths */}
       <AmbientBackground />
 
-      {/* Navigation Bar */}
-      <Navbar onDownloadClick={handleHeroOrNavDownload} />
+      {/* Header and Navigation (No download CTA button in navbar) */}
+      <Navbar />
 
-      {/* Main Content: 4 Core Sections */}
-      <main className="relative z-10">
-        {/* Section 1: Hero */}
-        <HeroSection onDownloadClick={handleHeroOrNavDownload} />
+      {/* Main Content: Exactly the 4 Content Sections */}
+      <main className="flex-grow">
+        {/* SECTION 1: HERO */}
+        <Hero onDownloadClick={handleDownload} downloading={downloading} />
 
-        {/* Section 2: Features (6 compact cards) */}
+        {/* Dynamic Animated Styled Moving Lines & Words Stream */}
+        <AnimatedMovingTicker />
+
+        {/* SECTION 2: FEATURES (No card-stats) */}
         <FeaturesSection />
 
-        {/* Section 3: AI (Large premium colorful section) */}
-        <AiSection />
+        {/* SECTION 3: AI DAY PLANNER (No card-stats) */}
+        <AISection />
 
-        {/* Section 4: Download */}
-        <DownloadSection 
-          downloadState={downloadState} 
-          onDownload={triggerApkDownload} 
-        />
+        {/* SECTION 4: DOWNLOAD */}
+        <DownloadSection onDownloadClick={handleDownload} downloading={downloading} />
       </main>
 
-      {/* Section 5: Small Footer */}
-      <Footer onDownloadClick={handleHeroOrNavDownload} />
+      {/* SECTION 5: FOOTER */}
+      <Footer />
     </div>
   );
 }

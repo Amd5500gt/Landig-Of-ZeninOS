@@ -1,30 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
   <defs>
-    <linearGradient id="upper-blade" x1="116" y1="145" x2="402" y2="205" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FF8A65"/>
-      <stop offset=".38" stop-color="#FF4D6D"/>
-      <stop offset=".72" stop-color="#FF6B35"/>
-      <stop offset="1" stop-color="#FFD84D"/>
+    <linearGradient id="zeninGradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB347" />
+      <stop offset="42%" stop-color="#FF4D6D" />
+      <stop offset="100%" stop-color="#9B6DFF" />
     </linearGradient>
-    <linearGradient id="energy-core" x1="386" y1="158" x2="136" y2="352" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9B6DFF"/>
-      <stop offset=".34" stop-color="#D000FF"/>
-      <stop offset=".68" stop-color="#FF4D6D"/>
-      <stop offset="1" stop-color="#00C8FF"/>
+    <linearGradient id="zeninGradSecondary" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4D8DFF" />
+      <stop offset="100%" stop-color="#A8E063" />
     </linearGradient>
-    <linearGradient id="lower-blade" x1="113" y1="362" x2="396" y2="308" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#00E5D4"/>
-      <stop offset=".34" stop-color="#00BFFF"/>
-      <stop offset=".68" stop-color="#FF4D6D"/>
-      <stop offset="1" stop-color="#9B6DFF"/>
-    </linearGradient>
+    <filter id="zeninGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
-  <g transform="translate(61.44 61.44) scale(.76)">
-    <path d="M256 82a174 174 0 1 1 0 348 174 174 0 1 1 0-348Z" stroke="#FF8A65" stroke-opacity=".55" stroke-width="7"/>
-    <path d="M116 150c42-20 92-33 142-34 57-1 107 11 144 35-12 18-29 33-52 43-31 14-66 21-104 21h-47c-37 0-67-24-83-65Z" fill="url(#upper-blade)"/>
-    <path d="M386 157c8 6 7 17-3 27L232 322c-25 23-58 33-96 30 9-25 26-50 49-71 22-20 46-37 73-55l91-60c14-9 28-13 37-9Z" fill="url(#energy-core)"/>
-    <path d="M396 363c-38 23-87 35-140 36-54 1-105-11-143-37 12-17 30-31 53-42 30-14 64-21 103-21h44c38 0 67 25 83 64Z" fill="url(#lower-blade)"/>
-    <circle cx="402" cy="151" r="4.5" fill="#1E293B"/>
-    <circle cx="113" cy="362" r="4.5" fill="#1E293B"/>
-  </g>
+
+  <!-- Ambient outer rounded backdrop -->
+  <rect width="160" height="160" rx="36" fill="#FFF8F0" />
+
+  <!-- Outer focus ring dashed orbit -->
+  <circle
+    cx="80"
+    cy="80"
+    r="64"
+    fill="none"
+    stroke="url(#zeninGradSecondary)"
+    stroke-width="2.5"
+    stroke-dasharray="10 5"
+    opacity="0.6"
+  />
+
+  <!-- Inner dynamic energy orbit -->
+  <circle
+    cx="80"
+    cy="80"
+    r="52"
+    fill="none"
+    stroke="url(#zeninGradPrimary)"
+    stroke-width="1.5"
+    stroke-dasharray="4 6"
+    opacity="0.5"
+  />
+
+  <!-- Central luminous AI orb -->
+  <circle
+    cx="80"
+    cy="80"
+    r="44"
+    fill="url(#zeninGradPrimary)"
+    filter="url(#zeninGlow)"
+  />
+
+  <!-- Geometric stylized Zenin 'Z' mark -->
+  <path
+    d="M 64 62 L 96 62 L 64 98 L 96 98"
+    stroke="#FFFFFF"
+    stroke-width="6.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Active status pulse dots -->
+  <circle cx="96" cy="62" r="4" fill="#FFFDF8" />
+  <circle cx="64" cy="98" r="4" fill="#A8E063" />
 </svg>

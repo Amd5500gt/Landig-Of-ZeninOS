@@ -1,159 +1,162 @@
 import React from 'react';
-import { 
-  CalendarRange, 
-  RotateCw, 
-  ListCheck, 
-  Target, 
-  Flame, 
-  BarChart3,
-  ArrowRight
-} from 'lucide-react';
+import { Calendar, Cpu, CheckSquare, Zap, Flame, BarChart3 } from 'lucide-react';
 
 interface FeatureItem {
   id: string;
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ElementType;
   accentColor: string;
-  gradient: string;
-  glowColor: string;
+  badgeBg: string;
 }
 
 const features: FeatureItem[] = [
   {
-    id: 'ai-day-planner',
+    id: 'ai-planner',
     title: 'AI Day Planner',
-    description: 'Schedules your high-impact priorities aligned with your daily cognitive rhythms.',
-    icon: CalendarRange,
-    accentColor: '#FFB347',
-    gradient: 'from-[#FFB347] to-[#FF8A65]',
-    glowColor: 'rgba(255, 179, 71, 0.25)'
+    description: 'Turn priorities into a practical daily plan.',
+    icon: Calendar,
+    accentColor: '#FFB347', // Mango
+    badgeBg: 'rgba(255, 179, 71, 0.14)',
   },
   {
     id: 'ai-adapt',
     title: 'AI Adapt',
-    description: 'Dynamically rebalances your entire timeline when unexpected delays emerge.',
-    icon: RotateCw,
-    accentColor: '#FF4D6D',
-    gradient: 'from-[#FF8A65] to-[#FF4D6D]',
-    glowColor: 'rgba(255, 77, 109, 0.25)'
+    description: 'Adjust your plan when your day changes.',
+    icon: Cpu,
+    accentColor: '#9B6DFF', // Grape
+    badgeBg: 'rgba(155, 109, 255, 0.14)',
   },
   {
     id: 'tasks',
     title: 'Tasks',
-    description: 'Frictionless capture with intelligent priority weighting and execution queues.',
-    icon: ListCheck,
-    accentColor: '#4D8DFF',
-    gradient: 'from-[#4D8DFF] to-[#9B6DFF]',
-    glowColor: 'rgba(77, 141, 255, 0.25)'
+    description: 'Capture and organize the work that matters.',
+    icon: CheckSquare,
+    accentColor: '#4D8DFF', // Blueberry
+    badgeBg: 'rgba(77, 141, 255, 0.14)',
   },
   {
     id: 'focus',
     title: 'Focus',
-    description: 'Deep work sessions with zero-distraction immersion and rhythmic interval rests.',
-    icon: Target,
-    accentColor: '#9B6DFF',
-    gradient: 'from-[#9B6DFF] to-[#FF4D6D]',
-    glowColor: 'rgba(155, 109, 255, 0.25)'
+    description: 'Protect deep-work time and stay on track.',
+    icon: Zap,
+    accentColor: '#FF4D6D', // Strawberry
+    badgeBg: 'rgba(255, 77, 109, 0.14)',
   },
   {
     id: 'habits',
     title: 'Habits',
-    description: 'Build compounding discipline through streak reinforcement and ritual anchors.',
+    description: 'Build consistent routines through daily action.',
     icon: Flame,
-    accentColor: '#A8E063',
-    gradient: 'from-[#A8E063] to-[#FFB347]',
-    glowColor: 'rgba(168, 224, 99, 0.25)'
+    accentColor: '#FF8A65', // Peach
+    badgeBg: 'rgba(255, 138, 101, 0.14)',
   },
   {
     id: 'daily-review',
     title: 'Daily Review',
-    description: 'Reflective metrics that synthesize daily accomplishments and prepare tomorrow.',
+    description: 'Reflect, learn and improve tomorrow.',
     icon: BarChart3,
-    accentColor: '#4D8DFF',
-    gradient: 'from-[#4D8DFF] to-[#A8E063]',
-    glowColor: 'rgba(77, 141, 255, 0.25)'
-  }
+    accentColor: '#A8E063', // Kiwi
+    badgeBg: 'rgba(168, 224, 99, 0.20)',
+  },
 ];
 
 export const FeaturesSection: React.FC = () => {
   return (
-    <section id="features" className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        
+    <section
+      id="features"
+      className="relative py-20 md:py-28 overflow-hidden"
+      aria-labelledby="features-heading"
+    >
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
-            <span>Core Architecture</span>
-            <span aria-hidden="true">·</span>
-            <span className="text-[#FF8A65]">Zenin OS 2.0</span>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#FFF8F0] border border-[#FFB347]/30 px-3.5 py-1 text-xs font-semibold text-[#B45309] mb-3">
+            <span>Core Capabilities</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight [text-wrap:balance]">
-            Intelligent Tools for High-Velocity Days
+          <h2
+            id="features-heading"
+            className="text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl"
+          >
+            Everything you need to run your day.
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 [text-wrap:balance]">
-            Six unified productivity engines engineered to harmonize your planning, execution, and rest.
+          <p className="mt-3.5 text-base text-[#64748B]">
+            Thoughtfully balanced tools built directly into one lightweight Android experience.
           </p>
+
+          {/* Animated flowing line accent below section header */}
+          <div className="flex justify-center mt-4">
+            <svg
+              className="h-2 w-32 overflow-visible"
+              viewBox="0 0 120 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M 0 4 Q 30 0, 60 4 T 120 4"
+                stroke="#FFB347"
+                strokeWidth="2"
+                strokeLinecap="round"
+                className="animate-flow-dash"
+              />
+            </svg>
+          </div>
         </div>
 
-        {/* 6 Compact Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {features.map((feat) => {
-            const IconComponent = feat.icon;
+        {/* Brand New Layout: Staggered Architecture with Illuminated Borders (No Card Stats) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          {features.map((feature) => {
+            const Icon = feature.icon;
             return (
               <div
-                key={feat.id}
-                className="group relative rounded-[24px] p-6 bg-white/75 backdrop-blur-md border border-white/80 hover:border-slate-200 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_32px_rgba(0,0,0,0.06)] flex flex-col justify-between overflow-hidden"
+                key={feature.id}
+                className="group relative flex flex-col justify-between rounded-[22px] border border-[#E2E8F0]/90 bg-white/80 p-7 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.03)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_-6px_rgba(15,23,42,0.08)] hover:border-[#CBD5E1]"
+                style={{ borderRadius: '22px' }}
               >
-                {/* Subtle illuminated corner ambient gradient glow on hover */}
-                <div 
-                  className="absolute -top-12 -right-12 w-28 h-28 rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
-                  style={{ backgroundColor: feat.accentColor }}
-                />
-
                 <div>
-                  {/* Icon with Fruit Gradient */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div 
-                      className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${feat.gradient} flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2`}
-                      style={{ boxShadow: `0 8px 20px ${feat.glowColor}` }}
+                  {/* Icon & Glow Node */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110"
+                      style={{
+                        backgroundColor: feature.badgeBg,
+                        color: feature.accentColor,
+                      }}
                     >
-                      <IconComponent className="w-5 h-5 stroke-[2.2]" />
+                      <Icon className="h-6 w-6" />
                     </div>
 
-                    {/* Subtle micro index label */}
-                    <span className="text-[11px] font-mono text-slate-400 font-medium">
-                      0{features.indexOf(feat) + 1}
-                    </span>
+                    <div
+                      className="h-2 w-2 rounded-full"
+                      style={{ backgroundColor: feature.accentColor }}
+                    />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight mb-2 group-hover:text-slate-950 transition-colors">
-                    {feat.title}
+                  <h3 className="text-xl font-bold tracking-tight text-[#0F172A] group-hover:text-[#0F172A]">
+                    {feature.title}
                   </h3>
 
-                  {/* 1-Line Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {feat.description}
+                  {/* Description */}
+                  <p className="mt-2 text-sm text-[#475569] leading-relaxed">
+                    {feature.description}
                   </p>
                 </div>
 
-                {/* Subtle Accent Bottom Line */}
-                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
-                  <span className="flex items-center gap-1.5">
-                    <span 
-                      className="w-1.5 h-1.5 rounded-full" 
-                      style={{ backgroundColor: feat.accentColor }} 
-                    />
-                    <span>Active Engine</span>
+                {/* Subtle illuminated accent line */}
+                <div className="mt-6 pt-4 border-t border-[#F8FAFC] flex items-center justify-between">
+                  <span className="text-[11px] font-medium tracking-wide uppercase text-[#94A3B8]">
+                    ZeninOS System
                   </span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-700 group-hover:translate-x-1 transition-all" />
+                  <div
+                    className="h-1.5 w-6 rounded-full transition-all duration-300 group-hover:w-12"
+                    style={{ backgroundColor: feature.accentColor }}
+                  />
                 </div>
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

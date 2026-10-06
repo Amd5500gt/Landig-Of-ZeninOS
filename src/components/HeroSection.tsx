@@ -25,7 +25,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onDownloadClick }) => 
             <span aria-hidden="true" className="text-slate-300">·</span>
             <span>Intelligent Architecture</span>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <span>By ZeninOS</span>
+            <span>By N11HUB</span>
           </div>
 
           {/* Main Headline */}

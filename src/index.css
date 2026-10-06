@@ -2,87 +2,157 @@
 
 @layer base {
   :root {
-    --fruit-mango: #FFB347;
-    --fruit-peach: #FF8A65;
-    --fruit-strawberry: #FF4D6D;
-    --fruit-grape: #9B6DFF;
-    --fruit-blueberry: #4D8DFF;
-    --fruit-kiwi: #A8E063;
+    --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --color-mango: #FFB347;
+    --color-peach: #FF8A65;
+    --color-strawberry: #FF4D6D;
+    --color-grape: #9B6DFF;
+    --color-blueberry: #4D8DFF;
+    --color-kiwi: #A8E063;
+    --bg-warm-100: #FFFDF8;
+    --bg-warm-200: #FFF8F0;
+    --bg-slate-50: #F8FAFC;
+  }
+
+  html {
+    font-family: var(--font-poppins);
+    scroll-behavior: smooth;
+    background-color: var(--bg-warm-100);
+    color: #1E293B;
   }
 
   body {
-    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #FFFDF8;
-    color: #1E293B;
+    font-family: var(--font-poppins);
     overflow-x: hidden;
+    min-height: 100vh;
   }
 }
 
-@keyframes float-slow {
+/* Custom ambient lighting and gradients */
+.ambient-glow-mango {
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.18) 0%, rgba(255, 179, 71, 0) 70%);
+}
+
+.ambient-glow-grape {
+  background: radial-gradient(circle, rgba(155, 109, 255, 0.18) 0%, rgba(155, 109, 255, 0) 70%);
+}
+
+.ambient-glow-blueberry {
+  background: radial-gradient(circle, rgba(77, 141, 255, 0.16) 0%, rgba(77, 141, 255, 0) 70%);
+}
+
+.ambient-glow-peach {
+  background: radial-gradient(circle, rgba(255, 138, 101, 0.16) 0%, rgba(255, 138, 101, 0) 70%);
+}
+
+.ambient-glow-strawberry {
+  background: radial-gradient(circle, rgba(255, 77, 109, 0.14) 0%, rgba(255, 77, 109, 0) 70%);
+}
+
+.glass-nav {
+  background: rgba(255, 253, 248, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.perspective-container {
+  perspective: 1200px;
+}
+
+/* Moving stroke & line animations */
+@keyframes flowDash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-12px) rotate(1.5deg);
+    transform: translateY(-10px) rotate(1deg);
   }
 }
 
-@keyframes float-reverse {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+@keyframes rotateSlow {
+  0% {
+    transform: rotate(0deg);
   }
-  50% {
-    transform: translateY(10px) rotate(-1.5deg);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-@keyframes pulse-subtle {
+@keyframes pulseGlow {
   0%, 100% {
+    opacity: 0.8;
     transform: scale(1);
-    opacity: 0.85;
   }
   50% {
-    transform: scale(1.06);
     opacity: 1;
+    transform: scale(1.05);
   }
 }
 
-@keyframes spin-very-slow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.animate-flow-dash {
+  stroke-dasharray: 12 8;
+  animation: flowDash 24s linear infinite;
 }
 
-@keyframes spin-reverse-slow {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+.animate-flow-dash-fast {
+  stroke-dasharray: 16 10;
+  animation: flowDash 16s linear infinite;
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 34s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 38s linear infinite;
 }
 
 .animate-float-slow {
-  animation: float-slow 7s ease-in-out infinite;
+  animation: floatSlow 6s ease-in-out infinite;
 }
 
-.animate-float-reverse {
-  animation: float-reverse 8.5s ease-in-out infinite;
+.animate-rotate-slow {
+  animation: rotateSlow 36s linear infinite;
 }
 
-.animate-pulse-subtle {
-  animation: pulse-subtle 4.5s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-very-slow 28s linear infinite;
-}
-
-.animate-spin-reverse {
-  animation: spin-reverse-slow 34s linear infinite;
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -91,5 +161,10 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none !important;
+    transform: none !important;
   }
 }

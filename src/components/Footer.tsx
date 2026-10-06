@@ -1,58 +1,68 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 
-interface FooterProps {
-  onDownloadClick: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onDownloadClick }) => {
+export const Footer: React.FC = () => {
   return (
-    <footer className="relative py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-200/60 bg-white/40 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        
-        {/* Brand Lockup & Tagline */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-2 sm:gap-3 text-center sm:text-left">
-          <span className="font-extrabold text-slate-900 text-lg tracking-tight">
-            N11HUB
-          </span>
-          <span className="text-xs text-slate-500 font-normal">
-            Building useful digital products.
-          </span>
-        </div>
+    <footer className="relative border-t border-[#E2E8F0]/80 bg-white/70 py-10 backdrop-blur-sm">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Brand & Tagline with ZeninOS Logo */}
+          <div className="flex items-center gap-3">
+            <div className="h-7 w-7 rounded-lg overflow-hidden flex-shrink-0">
+              <img
+                src="/assets/zeninos-logo.svg"
+                alt="ZeninOS Logo"
+                className="h-full w-full object-contain"
+                width="28"
+                height="28"
+              />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-base tracking-tight text-[#0F172A]">
+                  ZeninOS
+                </span>
+                <span className="text-xs font-semibold text-[#FF8A65]">2.0</span>
+              </div>
+              <p className="text-xs text-[#64748B]">
+                Intelligent productivity system for Android.
+              </p>
+            </div>
+          </div>
 
-        {/* Clean Nav Links */}
-        <div className="flex items-center gap-6 text-xs sm:text-sm font-medium text-slate-600">
-          <button 
-            onClick={onDownloadClick}
-            className="hover:text-slate-950 transition-colors cursor-pointer"
-          >
-            Download
-          </button>
-          <a 
-            href="https://github.com/amd5500gt" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-flex items-center gap-1 hover:text-slate-950 transition-colors"
-          >
-            <span>GitHub</span>
-            <ExternalLink className="w-3 h-3 text-slate-400" />
-          </a>
-          <a 
-            href="https://contact.n11hub.in/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-flex items-center gap-1 hover:text-slate-950 transition-colors"
-          >
-            <span>Support</span>
-            <ExternalLink className="w-3 h-3 text-slate-400" />
-          </a>
-        </div>
+          {/* Links: Download, GitHub, Support */}
+          <nav aria-label="Footer Navigation" className="flex items-center gap-6 text-xs sm:text-sm font-medium text-[#475569]">
+            <a
+              href="#download"
+              className="hover:text-[#0F172A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB347] rounded-md px-1 py-0.5"
+            >
+              Download
+            </a>
+            <a
+              href="https://github.com/amd5500gt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-[#0F172A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB347] rounded-md px-1 py-0.5"
+            >
+              <span>GitHub</span>
+              <ExternalLink className="h-3 w-3 opacity-60" />
+            </a>
+            <a
+              href="https://contact.n11hub.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-[#0F172A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB347] rounded-md px-1 py-0.5"
+            >
+              <span>Support</span>
+              <ExternalLink className="h-3 w-3 opacity-60" />
+            </a>
+          </nav>
 
-        {/* Copyright */}
-        <div className="text-xs text-slate-400 font-normal">
-          © 2026 N11HUB
+          {/* Copyright */}
+          <div className="text-xs text-[#94A3B8]">
+            © 2026 ZeninOS. All rights reserved.
+          </div>
         </div>
-
       </div>
     </footer>
   );
