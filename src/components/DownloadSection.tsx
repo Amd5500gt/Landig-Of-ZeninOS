@@ -62,7 +62,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({
 
           {/* Subtitle */}
           <p className="relative z-10 mt-4 text-lg sm:text-xl font-medium text-[#475569] max-w-xl mx-auto">
-            Download ZeninOS 2.0 for Android.
+            Download ZeninOS for Android.
           </p>
 
           {/* Clean Specification Tags (No cards-stats) */}
@@ -110,7 +110,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({
 
           {/* Discovered APK path info */}
           <div className="relative z-10 mt-6 text-xs text-[#94A3B8]">
-            Direct download: <code className="bg-[#F1F5F9] px-2 py-0.5 rounded text-[#475569] font-mono">assets/ZeninOS_1.0.apk</code> (~5.0 MB)
+            Direct download: (~5.0 MB)
           </div>
         </div>
       </div>

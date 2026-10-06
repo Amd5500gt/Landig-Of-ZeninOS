@@ -1,5 +1,5 @@
 {
-  "name": "ZeninOS 2.0",
+  "name": "ZeninOS",
   "description": "ZeninOS is an intelligent, lightweight Android productivity app for AI day planning, tasks, habits, focus and daily improvement.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

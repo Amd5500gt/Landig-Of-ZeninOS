@@ -19,7 +19,7 @@ export const Hero: React.FC<HeroProps> = ({ onDownloadClick, downloading }) => {
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2.5 rounded-full border border-[#FFB347]/30 bg-white/80 px-4 py-1.5 text-xs font-semibold text-[#B45309] shadow-sm backdrop-blur-md">
             <span className="flex h-2 w-2 rounded-full bg-[#FFB347] animate-pulse" />
-            <span>ZeninOS 2.0</span>
+            <span>ZeninOS</span>
             <span className="text-[#CBD5E1]">/</span>
             <span className="flex items-center gap-1 text-[#475569]">
               <Smartphone className="h-3.5 w-3.5 text-[#FF8A65]" /> Android
